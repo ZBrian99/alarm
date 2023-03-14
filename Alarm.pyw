@@ -20,13 +20,14 @@ def reproducir_audio(filename):
 def enviar_datos():
     puerto_serial.write(b'8')
 
-# pyinstaller --onefile "C:/Users/SheyKer/Desktop/aaa/Alarm.pyw"
+# pyinstaller --onefile "C:/Users/SheyKer/Downloads/Documents/Alarm/Alarm.pyw"
 
 keyboard.add_hotkey('ctrl+home', enviar_datos)
 
 while True:
     if puerto_serial.in_waiting > 0:
         datos = puerto_serial.read().decode().strip()
+        # print(datos)
         if datos == "z":
             reproducir_audio("C:/Users/SheyKer/Music/tuturu.mp3")
         if datos == "0":

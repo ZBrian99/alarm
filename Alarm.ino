@@ -36,7 +36,7 @@ void loop() {
     enableLeds = !enableLeds;
     if (enableLeds == false) {
         Serial.write('4');
-        lastState=false;
+      
 
 
         for (int i = 0; i < 3; i++) {
@@ -70,7 +70,7 @@ void loop() {
       enableLeds = !enableLeds;
       if (enableLeds == false) {
         Serial.write('4');
-        lastState=false;
+       
 
         for (int i = 0; i < 3; i++) {
 
@@ -106,6 +106,7 @@ void loop() {
     if (digitalRead(puertaDer) == LOW && digitalRead(ledDer) == HIGH) {
       Serial.write('2');
       digitalWrite(ledDer, LOW);
+      
 
     }
   }
@@ -116,6 +117,7 @@ void loop() {
 
       Serial.write('3');
       digitalWrite(ledDer, HIGH);
+      
 
     }
   }
@@ -127,7 +129,7 @@ void loop() {
 
       if (digitalRead(puertaIzq) == LOW && lastState == true) {
         Serial.write('0');
-        lastState=!lastState;
+        lastState=false;
       }
     }
     if (digitalRead(puertaIzq) == HIGH && lastState == false) {
@@ -136,7 +138,7 @@ void loop() {
       if (digitalRead(puertaIzq) == HIGH && lastState == false) {
 
         Serial.write('1');
-        lastState=!lastState;
+        lastState=true;
 
       }
     }
@@ -151,7 +153,7 @@ void loop() {
       if (digitalRead(puertaIzq) == LOW && digitalRead(ledIzq) == HIGH) {
         Serial.write('0');
         digitalWrite(ledIzq, LOW);
-
+        lastState=false;
       }
     }
     if (digitalRead(puertaIzq) == HIGH && digitalRead(ledIzq) == LOW) {
@@ -161,7 +163,7 @@ void loop() {
 
         Serial.write('1');
         digitalWrite(ledIzq, HIGH);
-
+        lastState=true;
       }
     }
   } 

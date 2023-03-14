@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(
-    ['C:/Users/SheyKer/Desktop/aaa/Alarm.pyw'],
+    ['C:/Users/SheyKer/Downloads/Documents/Alarm/Alarm.pyw'],
     pathex=[],
     binaries=[],
     datas=[],
