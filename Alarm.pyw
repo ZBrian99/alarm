@@ -22,7 +22,7 @@ def enviar_datos():
 
 # pyinstaller --onefile "C:/Users/SheyKer/Downloads/Documents/Alarm/Alarm.pyw"
 
-keyboard.add_hotkey('pausa', enviar_datos)
+keyboard.add_hotkey('insert', enviar_datos)
 
 while True:
     if puerto_serial.in_waiting > 0:
