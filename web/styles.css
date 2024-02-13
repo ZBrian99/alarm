@@ -1,0 +1,162 @@
+body {
+	background-color: #333;
+	color: white;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	margin: auto;
+	text-align: center;
+	margin-top: 5rem;
+	font-size: 1.5rem;
+  display: none;
+}
+
+.main-container {
+	max-width: 75rem;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.button-3d {
+	min-width: 130px;
+	height: 40px;
+	color: #fff;
+	padding: 5px 10px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+	outline: none;
+	border-radius: 5px;
+	border: none;
+}
+
+.button-3d--blue {
+	background: #3a86ff;
+	box-shadow: 0 5px #4433ff;
+}
+
+.button-3d--blue:hover {
+	box-shadow: 0 3px #4433ff;
+	top: 1px;
+}
+
+.button-3d--blue:active {
+	box-shadow: 0 0 #4433ff;
+	top: 5px;
+}
+
+.button-3d--red {
+	background: #b3001b;
+	box-shadow: 0 5px #8c001a;
+}
+
+.button-3d--red:hover {
+	box-shadow: 0 3px #8c001a;
+	top: 1px;
+}
+
+.button-3d--red:active {
+	box-shadow: 0 0 #8c001a;
+	top: 5px;
+}
+
+.button-3d--green {
+	background: #28a745;
+	box-shadow: 0 5px #218838;
+}
+
+.button-3d--green:hover {
+	box-shadow: 0 3px #218838;
+	top: 1px;
+}
+
+.button-3d--green:active {
+	box-shadow: 0 0 #218838;
+	top: 5px;
+}
+
+.button-3d--black {
+	background: #343a40;
+	box-shadow: 0 5px #212529;
+}
+
+.button-3d--black:hover {
+	box-shadow: 0 3px #212529;
+	top: 1px;
+}
+
+.button-3d--black:active {
+	box-shadow: 0 0 #212529;
+	top: 5px;
+}
+
+#recibido {
+	margin: auto;
+	text-align: center;
+	margin-top: 5rem;
+	font-size: 1.5rem;
+}
+
+.buttons-container {
+	margin-top: 5rem;
+	justify-content: center;
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.mensajes-container {
+	max-height: 23rem; /* Altura máxima del contenedor */
+  max-width: 40rem;
+	overflow-y: auto; /* Habilitar el desplazamiento vertical */
+	margin: 2rem auto;
+}
+
+/* Estilo personalizado para la barra de desplazamiento en WebKit */
+.mensajes-container::-webkit-scrollbar {
+	width: 0.25rem; /* Ancho de la barra de desplazamiento */
+}
+
+.mensajes-container::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 0.25rem;
+	-webkit-border-radius: 0.25rem;
+	-moz-border-radius: 0.25rem;
+	-ms-border-radius: 0.25rem;
+	-o-border-radius: 0.25rem;
+}
+
+.mensajes-container::-webkit-scrollbar-track {
+	background-color: transparent; /* Color de la pista */
+}
+.enviado {
+	background-color: #28a745;
+	color: white;
+	padding: 0.5rem;
+  margin: 0.5rem;
+	border-radius: 0.5rem;
+	-webkit-border-radius: 0.5rem;
+	-moz-border-radius: 0.5rem;
+	-ms-border-radius: 0.5rem;
+	-o-border-radius: 0.5rem;
+}
+
+.recibido {
+  background-color: #007bff;
+	color: white;
+	padding: 0.5rem;
+  margin: 0.5rem;
+	border-radius: 0.5rem;
+	-webkit-border-radius: 0.5rem;
+	-moz-border-radius: 0.5rem;
+	-ms-border-radius: 0.5rem;
+	-o-border-radius: 0.5rem;
+}
