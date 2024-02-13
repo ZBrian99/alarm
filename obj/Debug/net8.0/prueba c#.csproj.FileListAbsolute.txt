@@ -1,0 +1,23 @@
+C:\Users\SheyKer\Desktop\prueba c#\bin\Debug\net8.0\prueba c#.exe
+C:\Users\SheyKer\Desktop\prueba c#\bin\Debug\net8.0\prueba c#.deps.json
+C:\Users\SheyKer\Desktop\prueba c#\bin\Debug\net8.0\prueba c#.runtimeconfig.json
+C:\Users\SheyKer\Desktop\prueba c#\bin\Debug\net8.0\prueba c#.dll
+C:\Users\SheyKer\Desktop\prueba c#\bin\Debug\net8.0\prueba c#.pdb
+C:\Users\SheyKer\Desktop\prueba c#\obj\Debug\net8.0\prueba c#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SheyKer\Desktop\prueba c#\obj\Debug\net8.0\prueba c#.AssemblyInfoInputs.cache
+C:\Users\SheyKer\Desktop\prueba c#\obj\Debug\net8.0\prueba c#.AssemblyInfo.cs
+C:\Users\SheyKer\Desktop\prueba c#\obj\Debug\net8.0\prueba c#.csproj.CoreCompileInputs.cache
+C:\Users\SheyKer\Desktop\prueba c#\obj\Debug\net8.0\prueba c#.dll
+C:\Users\SheyKer\Desktop\prueba c#\obj\Debug\net8.0\refint\prueba c#.dll
+C:\Users\SheyKer\Desktop\prueba c#\obj\Debug\net8.0\prueba c#.pdb
+C:\Users\SheyKer\Desktop\prueba c#\obj\Debug\net8.0\prueba c#.genruntimeconfig.cache
+C:\Users\SheyKer\Desktop\prueba c#\obj\Debug\net8.0\ref\prueba c#.dll
+C:\Users\SheyKer\Desktop\prueba c#\bin\Debug\net8.0\NAudio.dll
+C:\Users\SheyKer\Desktop\prueba c#\bin\Debug\net8.0\NAudio.Asio.dll
+C:\Users\SheyKer\Desktop\prueba c#\bin\Debug\net8.0\NAudio.Core.dll
+C:\Users\SheyKer\Desktop\prueba c#\bin\Debug\net8.0\NAudio.Midi.dll
+C:\Users\SheyKer\Desktop\prueba c#\bin\Debug\net8.0\NAudio.Wasapi.dll
+C:\Users\SheyKer\Desktop\prueba c#\bin\Debug\net8.0\NAudio.WinMM.dll
+C:\Users\SheyKer\Desktop\prueba c#\obj\Debug\net8.0\prueba c#.csproj.AssemblyReference.cache
+C:\Users\SheyKer\Desktop\prueba c#\obj\Debug\net8.0\prueba c#.csproj.CopyComplete
+C:\Users\SheyKer\Desktop\prueba c#\bin\Debug\net8.0\Newtonsoft.Json.dll
