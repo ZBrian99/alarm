@@ -58,6 +58,11 @@ class Program
         {
           Uri serverUri = new Uri(serverSettings.ServerUrl);
           await client.ConnectAsync(serverUri, CancellationToken.None);
+
+          string mensajeInicial = "desktop";
+          byte[] bytesMensajeInicial = Encoding.UTF8.GetBytes(mensajeInicial);
+          await client.SendAsync(new ArraySegment<byte>(bytesMensajeInicial), WebSocketMessageType.Text, true, CancellationToken.None);
+
           ReproducirSonido(outputDevice, sonidos["tuturu"]);
 
           // Temporizador para el primer mensaje
@@ -89,6 +94,22 @@ class Program
               else if (message == "izquierda_on")
               {
                 ReproducirSonido(outputDevice, sonidos["close"]);
+              }
+              else if (message == "comportamiento_izquierda_on")
+              {
+                ReproducirSonido(outputDevice, sonidos["on"]);
+              }
+              else if (message == "comportamiento_izquierda_off")
+              {
+                ReproducirSonido(outputDevice, sonidos["off"]);
+              }
+              else if (message == "comportamiento_derecha_on")
+              {
+                ReproducirSonido(outputDevice, sonidos["on"]);
+              }
+              else if (message == "comportamiento_derecha_off")
+              {
+                ReproducirSonido(outputDevice, sonidos["off"]);
               }
 
               // Cancelar el temporizador existente
