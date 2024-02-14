@@ -10,14 +10,14 @@
 <body>
     <h1 id="recibido">Mensaje recibido</h1>
     <div class="buttons-container">
-        <button class="button-3d button-3d--red" onclick="controlLED('activar_izquierda')">
+        <button id="comportamiento-izquierda" class="button-3d button-3d--red" onclick="controlLED('activar_izquierda')">
             Activar Izquierda
         </button>
-        <button class="button-3d button-3d--blue" onclick="controlLED('led_izquierdo')">Led Izquierdo</button>
-        <button class="button-3d button-3d--green" onclick="controlLED('check')">Check</button>
+        <button id="led_izquierdo" class="button-3d button-3d--blue" onclick="controlLED('led_izquierdo')">Led Izquierdo</button>
+        <button id="check" class="button-3d button-3d--green" onclick="controlLED('check')">Check</button>
 
-        <button class="button-3d button-3d--blue" onclick="controlLED('led_derecho')">Led Derecho</button>
-        <button class="button-3d button-3d--red" onclick="controlLED('activar_derecha')">
+        <button id="led_derecho" class="button-3d button-3d--blue" onclick="controlLED('led_derecho')">Led Derecho</button>
+        <button id="comportamiento-derecha" class="button-3d button-3d--red" onclick="controlLED('activar_derecha')">
             Activar Derecha
         </button>
     </div>

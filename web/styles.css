@@ -47,6 +47,10 @@ h1 {
 	box-shadow: 0 3px #4433ff;
 	top: 1px;
 }
+.button-3d--blue-pressed {
+	box-shadow: 0 3px #4433ff;
+	top: 1px;
+}
 
 .button-3d--blue:active {
 	box-shadow: 0 0 #4433ff;
@@ -59,6 +63,10 @@ h1 {
 }
 
 .button-3d--red:hover {
+	box-shadow: 0 3px #8c001a;
+	top: 1px;
+}
+.button-3d--red-pressed {
 	box-shadow: 0 3px #8c001a;
 	top: 1px;
 }
@@ -77,6 +85,10 @@ h1 {
 	box-shadow: 0 3px #218838;
 	top: 1px;
 }
+.button-3d--green-pressed {
+	box-shadow: 0 3px #218838;
+	top: 1px;
+}
 
 .button-3d--green:active {
 	box-shadow: 0 0 #218838;
@@ -89,6 +101,10 @@ h1 {
 }
 
 .button-3d--black:hover {
+	box-shadow: 0 3px #212529;
+	top: 1px;
+}
+.button-3d--black-pressed {
 	box-shadow: 0 3px #212529;
 	top: 1px;
 }
@@ -159,4 +175,66 @@ h1 {
 	-moz-border-radius: 0.5rem;
 	-ms-border-radius: 0.5rem;
 	-o-border-radius: 0.5rem;
+}
+
+.consola {
+	background-color: #dc3545;
+	color: white;
+	padding: 0.5rem;
+	margin: 0.5rem;
+	border-radius: 0.5rem;
+	-webkit-border-radius: 0.5rem;
+	-moz-border-radius: 0.5rem;
+	-ms-border-radius: 0.5rem;
+	-o-border-radius: 0.5rem;
+}
+
+/* ----------------------------- */
+/* ----------------------------- */
+/* ----------------------------- */
+/* ----------------------------- */
+/* ----------------------------- */
+
+ .toggle-control {
+	 display: block;
+	 position: relative;
+	 padding-left: 100px;
+	 margin-bottom: 12px;
+	 cursor: pointer;
+	 font-size: 22px;
+	 user-select: none;
+}
+ .toggle-control input {
+	 position: absolute;
+	 opacity: 0;
+	 cursor: pointer;
+	 height: 0;
+	 width: 0;
+}
+ .toggle-control input:checked ~ .control {
+	 background-color: dodgerblue;
+}
+ .toggle-control input:checked ~ .control:after {
+	 left: 55px;
+}
+ .toggle-control .control {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 height: 50px;
+	 width: 100px;
+	 border-radius: 25px;
+	 background-color: darkgray;
+	 transition: background-color 0.15s ease-in;
+}
+ .toggle-control .control:after {
+	 content: "";
+	 position: absolute;
+	 left: 5px;
+	 top: 5px;
+	 width: 40px;
+	 height: 40px;
+	 border-radius: 25px;
+	 background: white;
+	 transition: left 0.15s ease-in;
 }
