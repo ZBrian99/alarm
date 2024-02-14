@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SheyKer\\Desktop\\prueba c#\\prueba c#.csproj": {}
+    "C:\\Users\\SheyKer\\Documents\\Alarm\\desktop\\prueba c#.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SheyKer\\Desktop\\prueba c#\\prueba c#.csproj": {
+    "C:\\Users\\SheyKer\\Documents\\Alarm\\desktop\\prueba c#.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SheyKer\\Desktop\\prueba c#\\prueba c#.csproj",
+        "projectUniqueName": "C:\\Users\\SheyKer\\Documents\\Alarm\\desktop\\prueba c#.csproj",
         "projectName": "prueba c#",
-        "projectPath": "C:\\Users\\SheyKer\\Desktop\\prueba c#\\prueba c#.csproj",
+        "projectPath": "C:\\Users\\SheyKer\\Documents\\Alarm\\desktop\\prueba c#.csproj",
         "packagesPath": "C:\\Users\\SheyKer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SheyKer\\Desktop\\prueba c#\\obj\\",
+        "outputPath": "C:\\Users\\SheyKer\\Documents\\Alarm\\desktop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\SheyKer\\AppData\\Roaming\\NuGet\\NuGet.Config"

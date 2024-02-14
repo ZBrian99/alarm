@@ -5,6 +5,8 @@ let ledDerecha = false;
 let activarIzquierda = false;
 let activarDerecha = false;
 
+let isChecked = false;
+
 let lastMessage = null;
 let messageCount = 0;
 
@@ -74,50 +76,40 @@ const conectarWebSocket = () => {
 		const mensaje = event.data;
 
 		if (mensaje == 'derecha_off') {
-			document.body.style.backgroundColor = 'purple';
-			document.getElementById('led_derecho').classList.remove('button-3d--blue-pressed');
-			document.getElementById('led_derecho').innerText = 'Led Derecho OFF'; // Cambia el texto del botón a "Apagado"
+			document.getElementById('led_derecho').checked = true;
 		} else if (mensaje == 'derecha_on') {
-			document.body.style.backgroundColor = 'gray';
-			document.getElementById('led_derecho').classList.add('button-3d--blue-pressed');
-			document.getElementById('led_derecho').innerText = 'Led Derecho ON'; // Cambia el texto del botón a "Encendido"
+			document.getElementById('led_derecho').checked=false;
 		} else if (mensaje == 'izquierda_off') {
-			document.body.style.backgroundColor = 'red';
-			document.getElementById('led_izquierdo').classList.remove('button-3d--blue-pressed');
-			document.getElementById('led_izquierdo').innerText = 'Led Izquierdo OFF'; // Cambia el texto del botón a "Apagado"
+			document.getElementById('led_izquierdo').checked=true;
 		} else if (mensaje == 'izquierda_on') {
-			document.body.style.backgroundColor = 'green';
-			document.getElementById('led_izquierdo').classList.add('button-3d--blue-pressed');
-			document.getElementById('led_izquierdo').innerText = 'Led Izquierdo ON'; // Cambia el texto del botón a "Encendido"
+			document.getElementById('led_izquierdo').checked = false;
 		} else if (
 			mensaje == 'comportamiento_izquierda_on' ||
 			mensaje == 'comportamiento_izquierda_silencioso_on'
 		) {
 			activarIzquierda = true;
-			document.getElementById('comportamiento-izquierda').classList.add('button-3d--red-pressed');
-			document.getElementById('comportamiento-izquierda').innerText = 'Izquierda OFF'; // Cambia el texto del botón a "Izquierda OFF"
+			document.getElementById('activar_izquierda').checked = true;
 		} else if (
 			mensaje == 'comportamiento_izquierda_off' ||
 			mensaje == 'comportamiento_izquierda_silencioso_off'
 		) {
 			activarIzquierda = false;
-			document.getElementById('comportamiento-izquierda').classList.remove('button-3d--red-pressed');
-			document.getElementById('comportamiento-izquierda').innerText = 'Izquierda ON'; // Cambia el texto del botón a "Izquierda ON"
+			document.getElementById('activar_izquierda').checked = false;
 		} else if (mensaje == 'comportamiento_derecha_on' || mensaje == 'comportamiento_derecha_silencioso_on') {
 			activarDerecha = true;
-			document.getElementById('comportamiento-derecha').classList.add('button-3d--red-pressed');
-			document.getElementById('comportamiento-derecha').innerText = 'Derecha OFF'; // Cambia el texto del botón a "Derecha OFF"
+			document.getElementById('activar_derecha').checked = true;
 		} else if (
 			mensaje == 'comportamiento_derecha_off' ||
 			mensaje == 'comportamiento_derecha_silencioso_off'
 		) {
 			activarDerecha = false;
-			document.getElementById('comportamiento-derecha').classList.remove('button-3d--red-pressed');
-			document.getElementById('comportamiento-derecha').innerText = 'Derecha ON'; // Cambia el texto del botón a "Derecha ON"
+			document.getElementById('activar_derecha').checked = false;
 		}
-
+		if (!isChecked) {
+			document.getElementById('check').checked = true;
+			isChecked = true;
+		}
 		console.log(mensaje);
-		document.getElementById('recibido').innerText = mensaje;
 
 		// Agregar el mensaje al área de mensajes
 		agregarMensaje(mensaje, 'recibido');
@@ -126,64 +118,38 @@ const conectarWebSocket = () => {
 
 conectarWebSocket(); // Iniciar la conexión WebSocket
 
-const controlLED = (estado) => {
-	switch (estado) {
+const controlLED = (elementId) => {
+	const checkbox = document.getElementById(elementId);
+	let message;
+
+	switch (elementId) {
 		case 'puerta_izquierda':
-			if (puertaIzquierda) {
-				socket.send('puerta_izquierda_off');
-				puertaIzquierda = false;
-				agregarMensaje('puerta_izquierda_off', 'enviado');
-			} else if (!puertaIzquierda) {
-				socket.send('puerta_izquierda_on');
-				puertaIzquierda = true;
-				agregarMensaje('puerta_izquierda_on', 'enviado');
-			}
+			message = checkbox.checked ? 'puerta_izquierda_on' : 'puerta_izquierda_off';
 			break;
 		case 'puerta_derecha':
-			if (puertaDerecha) {
-				socket.send('puerta_derecha_off');
-				puertaDerecha = false;
-				agregarMensaje('puerta_derecha_off', 'enviado');
-			} else if (!puertaDerecha) {
-				socket.send('puerta_derecha_on');
-				puertaDerecha = true;
-				agregarMensaje('puerta_derecha_on', 'enviado');
-			}
+			message = checkbox.checked ? 'puerta_derecha_on' : 'puerta_derecha_off';
 			break;
 		case 'led_izquierdo':
-			if (ledIzquierda) {
-				socket.send('led_izquierdo_off');
-				ledIzquierda = false;
-				agregarMensaje('led_izquierdo_off', 'enviado');
-			} else if (!ledIzquierda) {
-				socket.send('led_izquierdo_on');
-				ledIzquierda = true;
-				agregarMensaje('led_izquierdo_on', 'enviado');
-			}
+			message = checkbox.checked ? 'led_izquierdo_on' : 'led_izquierdo_off';
 			break;
 		case 'led_derecho':
-			if (ledDerecha) {
-				socket.send('led_derecho_off');
-				ledDerecha = false;
-				agregarMensaje('led_derecho_off', 'enviado');
-			} else if (!ledDerecha) {
-				socket.send('led_derecho_on');
-				ledDerecha = true;
-				agregarMensaje('led_derecho_on', 'enviado');
-			}
+			message = checkbox.checked ? 'led_derecho_on' : 'led_derecho_off';
 			break;
 		case 'activar_izquierda':
-			socket.send('activar_desactivar_led_izquierdo');
-			agregarMensaje('activar_desactivar_led_izquierdo', 'enviado');
+			message = checkbox.checked ? 'activar_led_izquierdo' : 'desactivar_led_izquierdo';
 			break;
 		case 'activar_derecha':
-			socket.send('activar_desactivar_led_derecho');
-			agregarMensaje('activar_desactivar_led_derecho', 'enviado');
+			message = checkbox.checked ? 'activar_led_derecho' : 'desactivar_led_derecho';
 			break;
 		case 'check':
-			socket.send('check');
-			agregarMensaje('check', 'enviado');
+			isChecked = false;
+			message = checkbox.checked ? 'check' : 'check';
 			break;
+	}
+
+	if (message) {
+		socket.send(message);
+		agregarMensaje(message, 'enviado');
 	}
 };
 

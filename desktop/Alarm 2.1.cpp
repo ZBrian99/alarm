@@ -228,48 +228,63 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t *payload, size_t length)
     {
       digitalWrite(ledIzquierdoPin, HIGH);
       ledIzquierdoEncendido = true;
-      // webSocket.broadcastTXT("izquierda_on");
+      webSocket.broadcastTXT("izquierda_on");
     }
     else if (strcmp((char *)payload, "led_izquierdo_off") == 0)
     {
       digitalWrite(ledIzquierdoPin, LOW);
       ledIzquierdoEncendido = false;
-      // webSocket.broadcastTXT("izquierda_off");
+      webSocket.broadcastTXT("izquierda_off");
     }
     else if (strcmp((char *)payload, "led_derecho_on") == 0)
     {
       digitalWrite(ledDerechoPin, HIGH);
       ledDerechoEncendido = true;
-      // webSocket.broadcastTXT("derecha_on");
+      webSocket.broadcastTXT("derecha_on");
     }
     else if (strcmp((char *)payload, "led_derecho_off") == 0)
     {
       digitalWrite(ledDerechoPin, LOW);
       ledDerechoEncendido = false;
-      // webSocket.broadcastTXT("derecha_off");
+      webSocket.broadcastTXT("derecha_off");
     }
     else if (strcmp((char *)payload, "activar_led_izquierdo") == 0)
     {
       comportamientoLedIzquierdoActivado = true;
+      webSocket.broadcastTXT("comportamiento_izquierda_on");
+
+      ledBlink(ledIzquierdoPin, 3, 150);
       digitalWrite(ledIzquierdoPin, ledIzquierdoEncendido);
-      webSocket.broadcastTXT("comportamiento_izquierda_" + String(comportamientoLedIzquierdoActivado ? "on" : "off"));
     }
     else if (strcmp((char *)payload, "desactivar_led_izquierdo") == 0)
     {
       comportamientoLedIzquierdoActivado = false;
-      digitalWrite(ledIzquierdoPin, ledIzquierdoEncendido);
-      webSocket.broadcastTXT("comportamiento_izquierda_" + String(comportamientoLedIzquierdoActivado ? "on" : "off"));
+      webSocket.broadcastTXT("comportamiento_izquierda_off");
+
+      ledBlink(ledIzquierdoPin, 3, 300);
+      digitalWrite(ledIzquierdoPin, LOW);
     }
     else if (strcmp((char *)payload, "activar_led_derecho") == 0)
     {
       comportamientoLedDerechoActivado = true;
+      webSocket.broadcastTXT("comportamiento_derecha_on");
+
+      ledBlink(ledDerechoPin, 3, 150);
       digitalWrite(ledDerechoPin, ledDerechoEncendido);
-      webSocket.broadcastTXT("comportamiento_derecha_" + String(comportamientoLedDerechoActivado ? "on" : "off"));
+    }
+    else if (strcmp((char *)payload, "desactivar_led_derecho") == 0)
+    {
+      comportamientoLedDerechoActivado = false;
+      webSocket.broadcastTXT("comportamiento_derecha_off");
+
+      ledBlink(ledDerechoPin, 3, 300);
+      digitalWrite(ledDerechoPin, LOW);
     }
     else if (strcmp((char *)payload, "activar_desactivar_led_izquierdo") == 0)
     {
       comportamientoLedIzquierdoActivado = !comportamientoLedIzquierdoActivado;
 
+      webSocket.broadcastTXT("comportamiento_izquierda_" + String(comportamientoLedIzquierdoActivado ? "on" : "off"));
       if (comportamientoLedIzquierdoActivado)
       {
         ledBlink(ledIzquierdoPin, 3, 150);
@@ -280,12 +295,12 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t *payload, size_t length)
         ledBlink(ledIzquierdoPin, 3, 300);
         digitalWrite(ledIzquierdoPin, LOW);
       }
-      webSocket.broadcastTXT("comportamiento_izquierda_" + String(comportamientoLedIzquierdoActivado ? "on" : "off"));
     }
     else if (strcmp((char *)payload, "activar_desactivar_led_derecho") == 0)
     {
       comportamientoLedDerechoActivado = !comportamientoLedDerechoActivado;
 
+      webSocket.broadcastTXT("comportamiento_derecha_" + String(comportamientoLedDerechoActivado ? "on" : "off"));
       if (comportamientoLedDerechoActivado)
       {
         ledBlink(ledDerechoPin, 3, 150);
@@ -297,13 +312,6 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t *payload, size_t length)
         ledBlink(ledDerechoPin, 3, 300);
         digitalWrite(ledDerechoPin, LOW);
       }
-      webSocket.broadcastTXT("comportamiento_derecha_" + String(comportamientoLedDerechoActivado ? "on" : "off"));
-    }
-    else if (strcmp((char *)payload, "desactivar_led_derecho") == 0)
-    {
-      comportamientoLedDerechoActivado = false;
-      digitalWrite(ledDerechoPin, ledDerechoEncendido);
-      webSocket.sendTXT(num, "comportamiento_derecha_" + String(comportamientoLedDerechoActivado ? "on" : "off"));
     }
     else if (strcmp((char *)payload, "obtener_comportamiento_izquierda") == 0)
     {
@@ -355,6 +363,7 @@ void setup()
   while (WiFi.status() != WL_CONNECTED)
   {
     Serial.println("Conectando a WiFi...");
+    delay(100);
   }
 
   digitalWrite(ledIzquierdoPin, LOW);
@@ -407,6 +416,11 @@ void loop()
       }
       ledIzquierdoEncendido = false;
       webSocket.broadcastTXT("izquierda_" + String(!ledIzquierdoEncendido ? "on" : "off"));
+      if (!comportamientoLedIzquierdoActivado)
+      {
+        comportamientoLedIzquierdoActivado = true;
+        webSocket.broadcastTXT("comportamiento_izquierda_silencioso_" + String(comportamientoLedIzquierdoActivado ? "on" : "off"));
+      }
       // else
       // {
       //   webSocket.broadcastTXT("comportamiento_izquierda_" + String(comportamientoLedIzquierdoActivado ? "on" : "off"));
@@ -443,6 +457,11 @@ void loop()
       }
       ledDerechoEncendido = false;
       webSocket.broadcastTXT("derecha_" + String(!ledDerechoEncendido ? "on" : "off"));
+      if (!comportamientoLedDerechoActivado)
+      {
+        comportamientoLedDerechoActivado = true;
+        webSocket.broadcastTXT("comportamiento_derecha_silencioso_" + String(comportamientoLedDerechoActivado ? "on" : "off"));
+      }
       // else
       // {
       //   webSocket.broadcastTXT("comportamiento_derecha_" + String(comportamientoLedDerechoActivado ? "on" : "off"));

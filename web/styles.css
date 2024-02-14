@@ -6,121 +6,6 @@ body {
 	padding: 0;
 }
 
-h1 {
-	margin: auto;
-	text-align: center;
-	margin-top: 5rem;
-	font-size: 1.5rem;
-  display: none;
-}
-
-.main-container {
-	max-width: 75rem;
-	margin: auto;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.button-3d {
-	min-width: 130px;
-	height: 40px;
-	color: #fff;
-	padding: 5px 10px;
-	font-weight: bold;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	position: relative;
-	display: inline-block;
-	outline: none;
-	border-radius: 5px;
-	border: none;
-}
-
-.button-3d--blue {
-	background: #3a86ff;
-	box-shadow: 0 5px #4433ff;
-}
-
-.button-3d--blue:hover {
-	box-shadow: 0 3px #4433ff;
-	top: 1px;
-}
-.button-3d--blue-pressed {
-	box-shadow: 0 3px #4433ff;
-	top: 1px;
-}
-
-.button-3d--blue:active {
-	box-shadow: 0 0 #4433ff;
-	top: 5px;
-}
-
-.button-3d--red {
-	background: #b3001b;
-	box-shadow: 0 5px #8c001a;
-}
-
-.button-3d--red:hover {
-	box-shadow: 0 3px #8c001a;
-	top: 1px;
-}
-.button-3d--red-pressed {
-	box-shadow: 0 3px #8c001a;
-	top: 1px;
-}
-
-.button-3d--red:active {
-	box-shadow: 0 0 #8c001a;
-	top: 5px;
-}
-
-.button-3d--green {
-	background: #28a745;
-	box-shadow: 0 5px #218838;
-}
-
-.button-3d--green:hover {
-	box-shadow: 0 3px #218838;
-	top: 1px;
-}
-.button-3d--green-pressed {
-	box-shadow: 0 3px #218838;
-	top: 1px;
-}
-
-.button-3d--green:active {
-	box-shadow: 0 0 #218838;
-	top: 5px;
-}
-
-.button-3d--black {
-	background: #343a40;
-	box-shadow: 0 5px #212529;
-}
-
-.button-3d--black:hover {
-	box-shadow: 0 3px #212529;
-	top: 1px;
-}
-.button-3d--black-pressed {
-	box-shadow: 0 3px #212529;
-	top: 1px;
-}
-
-.button-3d--black:active {
-	box-shadow: 0 0 #212529;
-	top: 5px;
-}
-
-#recibido {
-	margin: auto;
-	text-align: center;
-	margin-top: 5rem;
-	font-size: 1.5rem;
-}
-
 .buttons-container {
 	margin-top: 5rem;
 	justify-content: center;
@@ -131,7 +16,7 @@ h1 {
 
 .mensajes-container {
 	max-height: 23rem; /* Altura máxima del contenedor */
-  max-width: 40rem;
+	max-width: 40rem;
 	overflow-y: auto; /* Habilitar el desplazamiento vertical */
 	margin: 2rem auto;
 }
@@ -153,11 +38,12 @@ h1 {
 .mensajes-container::-webkit-scrollbar-track {
 	background-color: transparent; /* Color de la pista */
 }
+
 .enviado {
 	background-color: #28a745;
 	color: white;
 	padding: 0.5rem;
-  margin: 0.5rem;
+	margin: 0.5rem;
 	border-radius: 0.5rem;
 	-webkit-border-radius: 0.5rem;
 	-moz-border-radius: 0.5rem;
@@ -166,10 +52,10 @@ h1 {
 }
 
 .recibido {
-  background-color: #007bff;
+	background-color: #007bff;
 	color: white;
 	padding: 0.5rem;
-  margin: 0.5rem;
+	margin: 0.5rem;
 	border-radius: 0.5rem;
 	-webkit-border-radius: 0.5rem;
 	-moz-border-radius: 0.5rem;
@@ -189,52 +75,71 @@ h1 {
 	-o-border-radius: 0.5rem;
 }
 
-/* ----------------------------- */
-/* ----------------------------- */
-/* ----------------------------- */
-/* ----------------------------- */
-/* ----------------------------- */
+.toggle-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
 
- .toggle-control {
-	 display: block;
-	 position: relative;
-	 padding-left: 100px;
-	 margin-bottom: 12px;
-	 cursor: pointer;
-	 font-size: 22px;
-	 user-select: none;
+
+
+.toggle-control {
+  display: block;
+  position: relative;
+  padding-left: 100px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  user-select: none;
+  /*NOOHACER*/transform: scale(.6);
+  
 }
- .toggle-control input {
-	 position: absolute;
-	 opacity: 0;
-	 cursor: pointer;
-	 height: 0;
-	 width: 0;
+
+.toggle-control input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
 }
- .toggle-control input:checked ~ .control {
-	 background-color: dodgerblue;
+
+.toggle-control input:checked ~ .control {
+    background-color: #28a745;
 }
- .toggle-control input:checked ~ .control:after {
-	 left: 55px;
+
+.toggle-control input:checked ~ .control:after {
+    left: 55px;
 }
- .toggle-control .control {
-	 position: absolute;
-	 top: 0;
-	 left: 0;
-	 height: 50px;
-	 width: 100px;
-	 border-radius: 25px;
-	 background-color: darkgray;
-	 transition: background-color 0.15s ease-in;
+
+.toggle-control .control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100px;
+    border-radius: 25px;
+    background-color: #b3001b;
+    transition: background-color 0.15s ease-in;
 }
- .toggle-control .control:after {
-	 content: "";
-	 position: absolute;
-	 left: 5px;
-	 top: 5px;
-	 width: 40px;
-	 height: 40px;
-	 border-radius: 25px;
-	 background: white;
-	 transition: left 0.15s ease-in;
+
+.toggle-control .control:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    background: white;
+    transition: left 0.15s ease-in;
+}
+
+.toggle-control:hover input:not(:checked) ~ .control {
+    background-color: #dc3545;
+}
+
+.toggle-control:hover input:not(:checked) ~ .control:after {
+    left: 5px;
 }

@@ -1,27 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="froot_icon.png" type="image/png" />
-    <title>Alarm</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1 id="recibido">Mensaje recibido</h1>
-    <div class="buttons-container">
-        <button id="comportamiento-izquierda" class="button-3d button-3d--red" onclick="controlLED('activar_izquierda')">
-            Activar Izquierda
-        </button>
-        <button id="led_izquierdo" class="button-3d button-3d--blue" onclick="controlLED('led_izquierdo')">Led Izquierdo</button>
-        <button id="check" class="button-3d button-3d--green" onclick="controlLED('check')">Check</button>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="froot_icon.png" type="image/png" />
+		<title>Alarm</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="buttons-container">
+			<div class="toggle-container">
+				<span class="toggle-text"> Activar Izquierda </span>
+				<label class="toggle-control">
+					<input
+						type="checkbox"
+						id="activar_izquierda"
+						onclick="controlLED('activar_izquierda')"
+						checked="checked"
+					/>
+					<span class="control"></span>
+				</label>
+			</div>
 
-        <button id="led_derecho" class="button-3d button-3d--blue" onclick="controlLED('led_derecho')">Led Derecho</button>
-        <button id="comportamiento-derecha" class="button-3d button-3d--red" onclick="controlLED('activar_derecha')">
-            Activar Derecha
-        </button>
-    </div>
-    <div id="mensajes" class="mensajes-container"></div>
-    <script src="script.js"></script>
-</body>
+			<div class="toggle-container">
+				<span class="toggle-text"> LED Izquierdo </span>
+				<label class="toggle-control">
+					<input type="checkbox" id="led_izquierdo" onclick="controlLED('led_izquierdo')" checked="checked" />
+					<span class="control"></span>
+				</label>
+			</div>
+
+			<div class="toggle-container">
+				<span class="toggle-text"> Check </span>
+				<label class="toggle-control">
+					<input type="checkbox" id="check" onclick="controlLED('check')"  />
+					<span class="control"></span>
+				</label>
+			</div>
+
+			<div class="toggle-container">
+				<span class="toggle-text"> LED Derecho </span>
+				<label class="toggle-control">
+					<input type="checkbox" id="led_derecho" onclick="controlLED('led_derecho')" checked="checked" />
+					<span class="control"></span>
+				</label>
+			</div>
+
+			<div class="toggle-container">
+				<span class="toggle-text"> Activar Derecha </span>
+				<label class="toggle-control">
+					<input
+						type="checkbox"
+						id="activar_derecha"
+						onclick="controlLED('activar_derecha')"
+						checked="checked"
+					/>
+					<span class="control"></span>
+				</label>
+			</div>
+		</div>
+		<div id="mensajes" class="mensajes-container"></div>
+		<script src="script.js"></script>
+	</body>
 </html>

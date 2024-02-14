@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "//8gABiM2GtIQSFGoRW5ZyYui8D9kvDWG6BHXt0uOs7zHro01yOq6FLOucC8Q6MzwUgUnqqx6SJy6lvkl28BJA==",
+  "dgSpecHash": "bLTDtUayu6c97dC2W3vB3hK5SyRA/AlgzRuR1Hoye38rMTWZSw7xOTLyBAwxcMSlFtHixzvMB1WICaFbaL69zQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\SheyKer\\Desktop\\prueba c#\\prueba c#.csproj",
+  "projectFilePath": "C:\\Users\\SheyKer\\Documents\\Alarm\\desktop\\prueba c#.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SheyKer\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\SheyKer\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
